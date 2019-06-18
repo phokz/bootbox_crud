@@ -1,10 +1,10 @@
-@import 'bootstrap/mixins';
+@import "materialize/components/global";
 
 // show modal not looking like input form
 #content.show {
   .form-control {
     border: none;
-    @include box-shadow(none);
+    @extend .z-depth-1;
   }
 }
 

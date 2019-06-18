@@ -1,4 +1,4 @@
-//= require bootstrap/modal
+//= require materialize/modal
 //= require jquery.remotipart
 //= require bootbox
 //= require ./bootbox_crud_modals
