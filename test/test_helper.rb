@@ -1,15 +1,15 @@
 ENV['RAILS_ENV'] = 'test'
 
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+# require 'codeclimate-test-reporter'
+# CodeClimate::TestReporter.start
 
 require File.expand_path("../../test/dummy/config/environment.rb",  __FILE__)
 ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../test/dummy/db/migrate", __FILE__)]
 
-#require 'rails'
-require 'rails/test_help'
-require 'rails/generators/base'
-require 'rails/generators/test_case'
+require 'rails'
+# require 'rails/test_help'
+require 'rails/generators'
+# require 'rails/generators/test_case'
 require 'generators/generator_test_base'
 require 'minitest/rails'
 
@@ -23,7 +23,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+  # fixtures :all
 end
 
 # Load fixtures from the engine

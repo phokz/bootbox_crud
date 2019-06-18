@@ -5,8 +5,11 @@
 
     .form-inputs
     <%- attributes.each do |attribute| -%>
-      = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+      .row
+        = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
     <%- end -%>
 
-    .form-actions.col-sm-7.col-sm-offset-5
-      = f.button :submit
+    .form-actions
+      .row
+        .col.s7.offset-s5
+          = f.button :submit

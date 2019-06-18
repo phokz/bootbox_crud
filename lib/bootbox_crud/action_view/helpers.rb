@@ -18,13 +18,13 @@ module BootboxCrud
       end
 
       def form_options
-        { html: { class: 'form-horizontal' }, 
-          wrapper: :horizontal_form, 
+        { html: {},
+          wrapper: :materialize_form,
           wrapper_mappings: {
-          	check_boxes: :horizontal_radio_and_checkboxes, 
-          	radio_buttons: :horizontal_radio_and_checkboxes, 
-          	file: :horizontal_file_input, 
-          	boolean: :horizontal_boolean
+          	check_boxes: :materialize_radio_and_checkboxes,
+          	radio_buttons: :materialize_radio_and_checkboxes,
+          	file: :materialize_file_input,
+          	boolean: :materialize_boolean
           }
         }
       end

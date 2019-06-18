@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rails', '~> 4.2.5'
+gem 'rails', '~> 5.0'
 gem 'sprockets', '>= 3.0'
 gem 'sprockets-es6', '~> 0.9'
 gem 'sqlite3', '~> 1.3'

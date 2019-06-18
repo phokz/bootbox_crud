@@ -4,7 +4,7 @@ class BootboxCrud::InstallGenerator < ::Rails::Generators::Base
 
   def copy_config
     template 'config/initializers/simple_form.rb'
-    template 'config/initializers/simple_form_bootstrap.rb'
+    template 'config/initializers/simple_form_materialize.rb'
     template 'app/assets/javascripts/models.js'
   end
 

@@ -1,4 +1,5 @@
 var BBCrud = BBCrud || {};
+var bootbox = bootbox || mzbox;
 
 BBCrud.Modals = (function () {
 
@@ -68,6 +69,8 @@ BBCrud.Modals = (function () {
                 buttons: buttons
             }));
 
+            console.log(modal);
+
             var reqParams = Object.keys(options.data).reduce(function (result, key) {
                 if (key.indexOf('bb') === -1) {
                     result[key] = options.data[key];
@@ -76,11 +79,14 @@ BBCrud.Modals = (function () {
             }, {});
 
             $.get(url, reqParams, function(data) {
+                console.log(url);
                 var result = $(data);
+                console.log(result);
                 var content = result.attr('id') === 'content' ? result : result.find('#content');
-                modal.find('.modal-body').html(content);
-                modal.find('.form-actions').hide();
+                $(modal.element.find('.modal-content > p')).html(content);
+                $(modal.element.find('.form-actions')).hide();
                 if (onLoad !== null && typeof onLoad !== 'undefined') { onLoad(); }
+                $('select').formSelect();
             });
         },
         create: function (title, baseUrl, exec, data) {
@@ -139,7 +145,7 @@ BBCrud.Modals = (function () {
             function handleResponse(response) {
                 var result = $(response);
                 var content = result.attr('id') === 'content' ? result : result.find('#content');
-                modal.find('.modal-body').html(content);
+                modal.element.find('.modal-content > p').html(content);
             }
         },
         // general click handler displaying create or update form in modal

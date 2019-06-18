@@ -6,7 +6,7 @@ var modal = $('.bootbox.modal');
     <% else %>
         var form = "<%= j render(form_path) %>";
     <% end %>
-    modal.find('.modal-body').html(form);
+    modal.find('.modal-content').html(form);
     modal.find('input[type="submit"]').hide();
 <%- else %>
     BBCrud.Alert.show('<%= success_alert %>');

@@ -8,7 +8,7 @@ class InstallGeneratorTest < GeneratorTestBase
   test 'Assert installer copied template files' do
     run_generator
     assert_file 'config/initializers/simple_form.rb'
-    assert_file 'config/initializers/simple_form_bootstrap.rb'
+    assert_file 'config/initializers/simple_form_materialize.rb'
     assert_file 'app/assets/javascripts/models.js'
   end
 end

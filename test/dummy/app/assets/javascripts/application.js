@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootbox
+//= require mzbox
 //= require bootbox_crud_main
 //= require turbolinks
 //= require_tree .
