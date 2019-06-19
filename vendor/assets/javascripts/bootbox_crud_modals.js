@@ -23,14 +23,16 @@ BBCrud.Modals = (function () {
             options = $.extend({ data: {} }, options);
             var buttons = {
                 close: {
-                    "label" : "Close"
+                    "label" : "Close",
+                    "attrs" : {
+                        "class" : "white black-text"
+                    }
                 },
-                submit: {
+                confirm: {
                     "label" : btnLabel,
-                    "className" : "btn-success",
-                    "callback": function() {
+                    "callback" : function() {
                         if (options.data.bbDontSubmit !== true) {
-                            $('.bootbox.modal').find('input[type="submit"]').closest('form').submit();
+                            $('.modal.open').find('input[type="submit"]').closest('form').submit();
                         }
                         if (onSubmit !== null && typeof onSubmit !== 'undefined') { setTimeout(onSubmit, onSubmitTimeout); }
                         return false;
@@ -41,7 +43,9 @@ BBCrud.Modals = (function () {
                 $.extend(buttons, {
                     delete: {
                         "label" : "Delete",
-                        "className" : "btn-danger",
+                        "attrs" : {
+                            "class" : "left red"
+                        },
                         "callback" : function() {
                             modals.delete(id, options.baseUrl);
                             return false;
@@ -66,10 +70,9 @@ BBCrud.Modals = (function () {
                 keyboard : false,
                 show     : true,
                 header   : title,
-                buttons: buttons
+                callback : function(type) { return false; },
+                buttons: buttons,
             }));
-
-            console.log(modal);
 
             var reqParams = Object.keys(options.data).reduce(function (result, key) {
                 if (key.indexOf('bb') === -1) {
@@ -104,18 +107,20 @@ BBCrud.Modals = (function () {
             modals.form(id, title, actionName.charAt(0).toUpperCase() + actionName.slice(1), url, exec, timeout, timeoutExec, { baseUrl: baseUrl, data: $.extend({'bb-show-delete': false}, data) });
         },
         delete: function (id, baseUrl, exec) {
-            bootbox.confirm('Are you sure?', function(result) {
+            bootbox.confirm('Are you sure?', '', function(result) {
                 if (result === true) {
                     $.ajax({
                         url: baseUrl + id,
                         contentType: "application/javascript",
                         dataType: 'script',
-                        type: 'DELETE'
-                    }).success(function () {
-                        if (typeof exec !== 'undefined') { exec(); }
-                        BBCrud.Alert.show('Deleted');
-                    }).error(function () {
-                        BBCrud.Alert.show('Something went wrong!');
+                        type: 'DELETE',
+                        success: function () {
+                            if (typeof exec !== 'undefined') { exec(); }
+                            BBCrud.Alert.show('Deleted');
+                        },
+                        error: function (a, b, c) {
+                            BBCrud.Alert.show('Something went wrong!');
+                        }
                     });
                 }
             });

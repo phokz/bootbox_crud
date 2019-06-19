@@ -85,7 +85,7 @@ SimpleForm.setup do |config|
     b.use :html5
 
     b.wrapper tag: :div, class: 'btn' do |ba|
-      ba.use :tag, tag: :span, text: :label_text
+      ba.use :label_text, wrap_with: { tag: 'span' }
       ba.use :input, multiple: true
     end
 

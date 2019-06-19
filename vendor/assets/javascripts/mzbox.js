@@ -222,11 +222,11 @@
         if(Translation[options.locale] && Translation[options.locale][label])
           label = Translation[options.locale][label];
 
-        let abtn = $(`<a href="#!" data-name="${name}" class="modal-action modal-close waves-effect btn-flat">${label}</a>`).appendTo(modalFooter);
+        let abtn = $(`<a href="#!" data-name="${name}" class="modal-action modal-close waves-effect waves-light btn-small">${label}</a>`).appendTo(modalFooter);
         if(!button.attrs)
           button.attrs = {};
         if(!button.attrs.class)
-          button.attrs.class = name != 'cancel' ? 'waves-green' : 'waves-red';
+          button.attrs.class = name != 'cancel' ? 'light-green darken-1' : 'red';
         abtn.addClass(button.attrs.class);
 
         abtn.one('click', function(){ $this.action = $(this); });
@@ -449,7 +449,7 @@
     if(!options.animate)
       result.inDuration = result.outDuration = 0;
 
-    result.ready = function(){
+    result.onOpenEnd = function(){
       if(options.init)
         options.init();
 
@@ -463,7 +463,7 @@
       }
     };
 
-    result.complete = function(){
+    result.onCloseStart = function(){
       let param = undefined;
 
       if(options.callback){
