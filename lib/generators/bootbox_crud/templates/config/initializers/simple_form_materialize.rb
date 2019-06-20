@@ -36,20 +36,9 @@ SimpleForm.setup do |config|
     b.use :html5
     b.optional :readonly
 
-    b.use :input
-    b.use :label
-    b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }
-    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
-  end
-
-  config.wrappers :materialize_toggle, tag: 'p', class: 'col switch', error_class: 'has-error' do |b|
-    b.use :html5
-    b.optional :readonly
-
-    b.use :label
     b.wrapper tag: 'label' do |ba|
-      ba.use :input
-      ba.use :tag, tag: 'span', class: 'lever'
+      ba.use :input, class: 'filled-in'
+      ba.use :label_text, wrap_with: { tag: 'span' }
     end
 
     b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }

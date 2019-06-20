@@ -1,6 +1,5 @@
-.row
-  .col.s6
-  %label= label.to_s
-  - objects.each do |o|
-    .col
-      = link_to o.send(field), o
+.col
+%label= label.to_s
+- objects.each do |o|
+  .col
+    = link_to o.send(field), o
