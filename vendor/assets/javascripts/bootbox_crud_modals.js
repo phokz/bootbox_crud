@@ -90,6 +90,10 @@ BBCrud.Modals = (function () {
                 $(modal.element.find('.form-actions')).hide();
                 if (onLoad !== null && typeof onLoad !== 'undefined') { onLoad(); }
                 $('select').formSelect();
+                M.updateTextFields()
+                $('.modal .add_fields').on('click', function(e) {
+                    M.updateTextFields();
+                });
             });
         },
         create: function (title, baseUrl, exec, data) {
