@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "haml-rails", "~> 0.7"
   gem.add_dependency "simple_form", "~> 3.0"
   gem.add_dependency "jquery-rails", ">= 3.0"
-  gem.add_dependency "turbolinks", "~> 2.5"
+  gem.add_dependency "turbolinks", "~> 5.2.0"
   gem.add_dependency "jquery-turbolinks", "~> 2.1"
   gem.add_dependency "remotipart", "~> 1.2"
   gem.add_development_dependency "bundler", "~> 2.0"
