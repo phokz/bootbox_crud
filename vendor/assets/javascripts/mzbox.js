@@ -222,7 +222,7 @@
         if(Translation[options.locale] && Translation[options.locale][label])
           label = Translation[options.locale][label];
 
-        let abtn = $(`<a href="#!" data-name="${name}" class="modal-action modal-close waves-effect waves-light btn-small">${label}</a>`).appendTo(modalFooter);
+        let abtn = $(`<a data-name="${name}" class="modal-action modal-close waves-effect waves-light btn-small">${label}</a>`).appendTo(modalFooter);
         if(!button.attrs)
           button.attrs = {};
         if(!button.attrs.class)
