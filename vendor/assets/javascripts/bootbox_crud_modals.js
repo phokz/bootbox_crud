@@ -154,7 +154,7 @@ BBCrud.Modals = (function () {
             function handleResponse(response) {
                 var result = $(response);
                 var content = result.attr('id') === 'content' ? result : result.find('#content');
-                modal.element.find('.modal-content > p').html(content);
+                $(modal.element.find('.modal-content > p')).html(content);
             }
         },
         // general click handler displaying create or update form in modal
