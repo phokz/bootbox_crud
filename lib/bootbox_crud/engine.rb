@@ -1,7 +1,7 @@
 module BootboxCrud
   module Rails
     class Engine < ::Rails::Engine
-      require 'haml-rails'
+#      require 'haml-rails'
       require 'simple_form'
       require 'jquery-rails'
       require 'turbolinks'

@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "sass-rails", "~> 5.0"
   gem.add_dependency "bootstrap-sass", "~> 3.0"
   gem.add_dependency "haml", "~> 5.0"
-  gem.add_dependency "haml-rails", "~> 2.0"
+  #gem.add_dependency "haml-rails", "~> 2.0"
   gem.add_dependency "simple_form", "~> 4.0"
   gem.add_dependency "jquery-rails", ">= 3.0"
   gem.add_dependency "turbolinks", "~> 5.2.0"
